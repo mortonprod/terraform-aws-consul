@@ -13,3 +13,22 @@ exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 /opt/consul/bin/run-consul --client --cluster-tag-key "${cluster_tag_key}" --cluster-tag-value "${cluster_tag_value}"
 
 # You could add commands to boot your other apps here
+
+# CAN'T USE DOCKER HUB HOW DO YOU WANT TO AUTHENTICATE.
+# sudo apt install docker.io
+
+# Since we can't access docker hub. 
+# Should this not be a gateway issue?
+
+
+# sudo apt install npm
+
+# sudo apt install nodejs-legacy
+
+# npm install
+
+# node consul-service.js &
+
+# sudo mkdir /etc/consul.d
+
+# echo '{"service": {"name": "web", "tags": ["node"], "port": 3000}}' | sudo tee /etc/consul.d/web.json

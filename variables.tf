@@ -13,12 +13,12 @@
 
 variable "ami_id" {
   description = "The ID of the AMI to run in the cluster. This should be an AMI built from the Packer template under examples/consul-ami/consul.json. To keep this example simple, we run the same AMI on both server and client nodes, but in real-world usage, your client nodes would also run your apps. If the default value is used, Terraform will look up the latest AMI build automatically."
-  default     = ""
+  default     = "ami-df0917bb"
 }
 
 variable "aws_region" {
-  description = "The AWS region to deploy into (e.g. us-east-1)."
-  default     = "us-east-1"
+  description = "The AWS region to deploy into (e.g. eu-west-2)."
+  default     = "eu-west-2"
 }
 
 variable "cluster_name" {
@@ -43,7 +43,7 @@ variable "cluster_tag_key" {
 
 variable "ssh_key_name" {
   description = "The name of an EC2 Key Pair that can be used to SSH to the EC2 Instances in this cluster. Set to an empty string to not associate a Key Pair."
-  default     = ""
+  default     = "myKey"
 }
 
 variable "vpc_id" {
