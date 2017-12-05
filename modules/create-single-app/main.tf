@@ -32,7 +32,7 @@ data "aws_ami" "consul" {
 module "create-single-app" {
 
   source = "../consul-cluster"
-
+  cluster_name = "consul-example-client"
   user_data = "${data.template_file.user_data_client.rendered}"
 
 }
