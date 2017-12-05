@@ -5,23 +5,28 @@
 
 variable "cluster_name" {
   description = "The name of the Consul cluster (e.g. consul-stage). This variable is used to namespace all resources created by this module."
+  default     = "consul-example"
 }
 
 variable "ami_id" {
   description = "The ID of the AMI to run in this cluster. Should be an AMI that had Consul installed and configured by the install-consul module."
+  default     = "ami-74243a10"
 }
 
 variable "instance_type" {
   description = "The type of EC2 Instances to run for each node in the cluster (e.g. t2.micro)."
+  default     = "t2.micro"
 }
 
 variable "vpc_id" {
   description = "The ID of the VPC in which to deploy the Consul cluster"
+  default     = "vpc-f64b7c9f"
 }
 
 variable "allowed_inbound_cidr_blocks" {
   description = "A list of CIDR-formatted IP address ranges from which the EC2 Instances will allow connections to Consul"
   type        = "list"
+  default = ["0.0.0.0/0"]
 }
 
 variable "user_data" {
@@ -40,29 +45,29 @@ variable "cluster_size" {
 
 variable "cluster_tag_key" {
   description = "Add a tag with this key and the value var.cluster_tag_value to each Instance in the ASG. This can be used to automatically find other Consul nodes and form a cluster."
-  default     = "consul-servers"
+  default     = "consul-client"
 }
 
 variable "cluster_tag_value" {
   description = "Add a tag with key var.clsuter_tag_key and this value to each Instance in the ASG. This can be used to automatically find other Consul nodes and form a cluster."
-  default     = "auto-join"
+  default     = "consul-example"
 }
 
 variable "subnet_ids" {
   description = "The subnet IDs into which the EC2 Instances should be deployed. We recommend one subnet ID per node in the cluster_size variable. At least one of var.subnet_ids or var.availability_zones must be non-empty."
   type        = "list"
-  default     = []
+  default     = ["subnet-b20e7fff"]
 }
 
 variable "availability_zones" {
   description = "The availability zones into which the EC2 Instances should be deployed. We recommend one availability zone per node in the cluster_size variable. At least one of var.subnet_ids or var.availability_zones must be non-empty."
   type        = "list"
-  default     = []
+  default     = ["eu-west-2b"]
 }
 
 variable "ssh_key_name" {
   description = "The name of an EC2 Key Pair that can be used to SSH to the EC2 Instances in this cluster. Set to an empty string to not associate a Key Pair."
-  default     = ""
+  default     = "myKey"
 }
 
 variable "allowed_ssh_cidr_blocks" {
