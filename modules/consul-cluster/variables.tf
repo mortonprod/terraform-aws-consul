@@ -73,7 +73,7 @@ variable "ssh_key_name" {
 variable "allowed_ssh_cidr_blocks" {
   description = "A list of CIDR-formatted IP address ranges from which the EC2 Instances will allow SSH connections"
   type        = "list"
-  default     = []
+  default     = ["0.0.0.0/0"]
 }
 
 variable "allowed_ssh_security_group_ids" {
