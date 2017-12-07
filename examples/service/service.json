@@ -1,0 +1,22 @@
+{
+    "service": {
+        "name": "rule",
+        "tags": [
+            "urlprefix-/ruleme"
+        ],
+        "address": "",
+        "port": 3001,
+        "enable_tag_override": false,
+        "checks": [
+            {
+                "id": "api",
+                "name": "HTTP API on port 3001",
+                "http": "http://localhost:3001/",
+                "tls_skip_verify": false,
+                "method": "GET",
+                "interval": "10s",
+                "timeout": "1s"   
+            }
+        ]
+    }
+}
